@@ -1,0 +1,29 @@
+<h1 *ngIf="article">Edit {{article.title}}</h1>
+
+<form *ngIf="article" (ngSubmit)="onSubmit()" #editArticle="ngForm">
+  
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <input [(ngModel)]="article._id" type="hidden" name="_id" id="_id">
+
+  <div>
+    <label for="title">title</label>
+    <input [(ngModel)]="article.title" type="text" name="title" id="title">
+    <div *ngIf="errors.title">{{errors.title.message}}</div>
+  </div>
+
+  <div>
+    <label for="body">body</label>
+    <input [(ngModel)]="article.body" type="text" name="body" id="body">
+    <div *ngIf="errors.body">{{errors.body.message}}</div>
+  </div>
+
+  <div>
+    <label for="keywords">KeyWords</label>
+    <input [(ngModel)]="article.keywords" type="text" name="keywords" id="keywords">
+    <div *ngIf="errors.keywords">{{errors.keywords.message}}</div>
+  </div>
+  
+  <button type="submit">Submit</button>
+
+</form>
