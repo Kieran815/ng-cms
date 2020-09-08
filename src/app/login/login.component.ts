@@ -8,10 +8,12 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private userService: UserService
-  ) {
-    console.log(this.userService.test());
+  constructor(private userService: UserService) {
+    this.userService.test().subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
   }
 
 
